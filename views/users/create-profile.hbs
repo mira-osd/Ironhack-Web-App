@@ -1,0 +1,31 @@
+<h1>Crée ton profil</h1>
+
+<form action="/create-profile.hbs" method="POST">
+    <label for="icon">Choisis ta photo de profil :</label>
+    <input id="icon" type="image" name="icon">
+
+    <label for="favorite_pic">Télécharge la photo de ta tenue préférée :</label>
+    <input id="favorite_pic" type="image" name="favorite_pic">
+
+    <label for="bio">Rédige ta biographie :</label>
+    <input id="bio" type="texte" name="bio">
+
+    {{!-- <h1>Un questionnaire pour mieux te connaitre</h1>
+        <label for="your-style">Quel style aimes-tu ? (plusieurs réponses possibles)</label>
+          <input id="casual" type="checkbox" name="casual">Casual
+          <input id="boheme" type="checkbox" name="boheme">Bohème 
+          <input id="minimalist" type="checkbox" name="minimalist">Minimaliste
+         <input id="tendance" type="checkbox" name="tendance">Tendance/fashionista
+         <input id="créative" type="checkbox" name="créative">Créative/coloré
+
+        <label for="your-shop">Où fais-tu ton shopping ? (plusieurs choix possibles)</label>
+            <input id="grands-mag" type="checkbox" name="grands-mag">Grands magasins (printemps, galeries lafayettes, BHV..)
+            <input id="petites-boutiques" type="checkbox" name="petites-boutiques">Petites boutiques indépendantes
+            <input id="casual" type="checkbox" name="casual">Fast-fashion (Zara, Mango, H&M, Asos...)
+            <input id="friperies" type="checkbox" name="friperies">Friperies 
+            <input id="vinted" type="checkbox" name="vinted">Vinted --}}
+
+        <label for="city">Dans quelle ville fais-tu ton shopping ?</label>
+            <input id="city" type="text" name="city">
+                <button type="submit">VALIDER</button>
+</form>
