@@ -1,1 +1,35 @@
-PROFILE
+<header>
+    <nav>
+        <div>
+          {{#each profile}}
+            <img src="/images/icondefault.png" class="icon">
+            {{!-- ici mettre l'username du user => pb est qu'il affiche tous les username de la base de donnée  --}}
+            <h4>{{username}}</h4>
+            {{!-- ici mettre la bio du user --}}
+            <h4>"{{bio}} "</h4>
+
+            {{/each}}
+        </div>
+    </nav>
+
+  <section class="show-post">
+  </section>
+  
+<footer>
+
+<a href="/views/posts/timeline.hbs">
+<img src="/images/timeline.png" class="timeline-img">
+</a>
+
+<a href="/views/posts/post-add.hbs">
+<img src="/images/add.png" class="add-post">
+</a>
+
+<a href="">
+<img src="/images/disconnet.png" class="disconnet">
+</a>
+
+</footer>
+
+   
+</header>

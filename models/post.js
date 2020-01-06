@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const postSchema = new Schema({
-  title: String,
+  picture: String,
+  legende: String,
+  date: Date, 
 },{
     timestamps: true
 });

@@ -9,12 +9,14 @@ router.get('/create-profile', (req, res, next) => {
   });
 
 router.post('/create-profile', (req, res,next) => {
+    let username = req.body.username
     let icon = req.body.icon
     let favorite_pic = req.body.favorite_pic;
     let bio = req.body.icon;
     let city = req.body.city
 
     const profile = new User({
+      username,
       icon, 
       favorite_pic, 
       bio,
@@ -23,7 +25,7 @@ router.post('/create-profile', (req, res,next) => {
 
     profile.save()
     .then(profile => {
-      res.redirect('./posts/post-show') //revoir lien 
+      res.redirect('./posts/timeline') //revoir lien 
     })
     .catch(err => {
       res.render('create-profile'); //revoir lien 
@@ -42,7 +44,10 @@ router.get('/update-profile', (req, res, next) => {
 /*VIEW PROFILE page*/
 
 router.get('/profile', (req, res, next) => {
-    res.render('users/profile');
+  User.find()
+  .then(profile => res.render('users/profile', {profile}))
+  .catch(err => next(err));
+    // res.render('users/profile');
   });
 
 /*VIEW MY PROFILE page*/
