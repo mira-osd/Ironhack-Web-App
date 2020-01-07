@@ -7,10 +7,15 @@
   
   <label for="password">Mot de passe</label>
   <input id="password" type="password" name="password">
+
+  {{#if errorMessage}}
+  <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
   
   <button type="submit">
     SE CONNECTER
   </button>
 </form>
 
-<a href="/login">Vous avez déjà un compte ?</a>
+<p class="account-message">Vous avez déjà un compte ?</p>
+<a href="/login"></a>
