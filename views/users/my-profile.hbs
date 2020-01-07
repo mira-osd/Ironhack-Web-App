@@ -11,6 +11,10 @@
 
     <div class="show-post">
 
+        {{#each posts}}
+            <a href="/posts/edit?post_id={{this._id}}" class="edit-button">EDIT</a>
+        {{/each}}
+
     </div>
 <footer>
 
