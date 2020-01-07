@@ -1,14 +1,15 @@
 <h1>Crée ton profil</h1>
 
-<form action="/create-profile.hbs" method="POST">
+<form action="/create-profile" method="POST">
     <label for="icon">Choisis ta photo de profil :</label>
-    <input id="icon" type="image" name="icon">
+    <input id="icon" type="file" name="icon">
 
     <label for="favorite_pic">Télécharge la photo de ta tenue préférée :</label>
-    <input id="favorite_pic" type="image" name="favorite_pic">
+    <input id="favorite_pic" type="file" name="favorite_pic">
 
     <label for="bio">Rédige ta biographie :</label>
-    <input id="bio" type="texte" name="bio">
+    {{!-- <input id="bio" type="texte" name="bio"> --}}
+     <textearea name="bio"></textearea>
 
     {{!-- <h1>Un questionnaire pour mieux te connaitre</h1>
         <label for="your-style">Quel style aimes-tu ? (plusieurs réponses possibles)</label>
