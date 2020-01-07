@@ -11,7 +11,7 @@ const User = require('../models/user')
 /* 1.SIGN UP */
 
 router.get('/signup', (req, res) => {
-  res.render('authentification/signup', { message: req.flash('error')});
+  res.render('authentication/signup', { message: req.flash('error')});
 });
 
 router.post('/signup', (req, res, next) =>{
@@ -20,14 +20,14 @@ router.post('/signup', (req, res, next) =>{
 
   // Check email and password are not empty
   if (email === "" || password === "") {
-    res.render("authentification/signup", { errorMessage: "Il faut une adresse e-mail et un mot de passe pour pouvoir vous connecter" });
+    res.render("authentication/signup", { errorMessage: "Il faut une adresse e-mail et un mot de passe pour pouvoir vous connecter" });
     return;
   }
 
   User.findOne({ email })
     .then(user => {
       if (user) {
-        res.render("authentification/signup", { errorMessage: "Cette adresse email existe déjà" });
+        res.render("authentication/signup", { errorMessage: "Cette adresse email existe déjà" });
         return;
       }
 
@@ -45,7 +45,7 @@ router.post('/signup', (req, res, next) =>{
     req.login(user, err => {
       if (err) return next(err);
 
-      res.redirect('./users/create-profile');
+      res.redirect('./users/create-profile'); 
     });
   })
   .catch(err => {
@@ -60,7 +60,7 @@ router.post('/signup', (req, res, next) =>{
 /* 2.LOGIN PAGE */
 
 router.get('/login', (req, res) => {
-  res.render('authentification/login', { message: req.flash('error')});
+  res.render('authentication/login', { message: req.flash('error')});
 });
 
 router.post('/login', passport.authenticate('local', {
