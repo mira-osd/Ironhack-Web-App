@@ -11,11 +11,7 @@ const User = require('../models/user')
 /* 1.SIGN UP */
 
 router.get('/signup', (req, res) => {
-<<<<<<< HEAD
   res.render('authentification/signup', { message: req.flash('error')});
-=======
-  res.render('authentication/signup', { message: req.flash('error')});
->>>>>>> c5a3e32aae33362072d9a90f75bc843536d512ba
 });
 
 router.post('/signup', (req, res, next) =>{
@@ -24,22 +20,14 @@ router.post('/signup', (req, res, next) =>{
 
   // Check email and password are not empty
   if (email === "" || password === "") {
-<<<<<<< HEAD
     res.render("authentification/signup", { errorMessage: "Il faut une adresse e-mail et un mot de passe pour pouvoir vous connecter" });
-=======
-    res.render("authentication/signup", { errorMessage: "Il faut une adresse e-mail et un mot de passe pour pouvoir vous connecter" });
->>>>>>> c5a3e32aae33362072d9a90f75bc843536d512ba
     return;
   }
 
   User.findOne({ email })
     .then(user => {
       if (user) {
-<<<<<<< HEAD
         res.render("authentification/signup", { errorMessage: "Cette adresse email existe déjà" });
-=======
-        res.render("authentication/signup", { errorMessage: "Cette adresse email existe déjà" });
->>>>>>> c5a3e32aae33362072d9a90f75bc843536d512ba
         return;
       }
 
@@ -57,11 +45,7 @@ router.post('/signup', (req, res, next) =>{
     req.login(user, err => {
       if (err) return next(err);
 
-<<<<<<< HEAD
       res.redirect('./users/create-profile');
-=======
-      res.redirect('./users/create-profile'); 
->>>>>>> c5a3e32aae33362072d9a90f75bc843536d512ba
     });
   })
   .catch(err => {
@@ -76,11 +60,7 @@ router.post('/signup', (req, res, next) =>{
 /* 2.LOGIN PAGE */
 
 router.get('/login', (req, res) => {
-<<<<<<< HEAD
   res.render('authentification/login', { message: req.flash('error')});
-=======
-  res.render('authentication/login', { message: req.flash('error')});
->>>>>>> c5a3e32aae33362072d9a90f75bc843536d512ba
 });
 
 router.post('/login', passport.authenticate('local', {
