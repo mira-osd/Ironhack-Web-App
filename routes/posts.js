@@ -13,6 +13,7 @@ router.get('/timeline', (req, res, next) => {
 // ADD POST page 
 
 router.get('/posts/add', (req, res, next) => {
+    console.log('USER :', req.user);
     res.render('posts/post-add');
 });
 
