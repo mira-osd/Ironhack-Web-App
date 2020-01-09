@@ -5,33 +5,29 @@ const User = require('../models/user')
 
 /* CREATE PROFILE page*/
 router.get('/create-profile', (req, res, next) => {
-    res.render('users/create-profile');
+    
+    User.findById(req.user.id).then(user => {
+      res.render('users/create-profile',{
+        user:req.user
+      });
+    })
+    .catch(next)
   });
 
 router.post('/create-profile', (req, res,next) => {
-    let username = req.body.username
-    let icon = req.body.icon
-    let favorite_pic = req.body.favorite_pic;
-    let bio = req.body.icon;
-    let city = req.body.city
-
-    const profile = new User({
-      username,
-      icon, 
-      favorite_pic, 
-      bio,
-      city
+    User.update({_id:req.user.id}, {$set: {
+      username: req.body.username,
+      icon: req.body.url,
+      favorite_pic: req.body.url,
+      bio: req.body.bio,
+      city: req.body.city
+    }})
+    .then(user => {
+      res.redirect('../timeline');  
     })
-
-    profile.save()
-    .then(profile => {
-      res.redirect('./posts/timeline') //revoir lien 
+    .catch((err) => {
+      next(err);
     })
-    .catch(err => {
-      res.render('create-profile'); //revoir lien 
-    })
-
-    // voir comment faire pour que le create profile s'ajoute aux données de l'user sans en créer un nouveau ! 
 
 })
 

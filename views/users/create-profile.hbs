@@ -1,6 +1,9 @@
 <h1>Crée ton profil</h1>
 
-<form action="/create-profile" method="POST">
+<form action="/users/create-profile" method="POST">
+    <label for="username"> Nom d'utilisateur :</label>
+    <input id="username" type="text" name="username">
+
     <label for="icon">Choisis ta photo de profil :</label>
     <input id="icon" type="file" name="icon">
 
@@ -8,8 +11,7 @@
     <input id="favorite_pic" type="file" name="favorite_pic">
 
     <label for="bio">Rédige ta biographie :</label>
-    {{!-- <input id="bio" type="texte" name="bio"> --}}
-     <textearea name="bio"></textearea>
+    <textearea name="bio"></textearea>
 
     {{!-- <h1>Un questionnaire pour mieux te connaitre</h1>
         <label for="your-style">Quel style aimes-tu ? (plusieurs réponses possibles)</label>
@@ -27,6 +29,6 @@
             <input id="vinted" type="checkbox" name="vinted">Vinted --}}
 
         <label for="city">Dans quelle ville fais-tu ton shopping ?</label>
-            <input id="city" type="text" name="city">
-                <button type="submit">VALIDER</button>
+        <input id="city" type="text" name="city">
+        <button type="submit">VALIDER</button>
 </form>

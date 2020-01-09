@@ -13,46 +13,26 @@ router.get('/timeline', (req, res, next) => {
 // ADD POST page 
 
 router.get('/posts/add', (req, res, next) => {
-    console.log('USER :', req.user);
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
     res.render('posts/post-add');
 });
 
-//je n'arrive pas à créer le modele post (schema) sur mongoDB + problème avec la validation du formulaire
-
-// router.post('/posts/add', (req, res,next) => {
-//     let picture = req.body.picture
-//     let legende = req.body.legende
-//     let date = req.body.date
-
-//     const post = new Post({
-//       picture,
-//       legende,
-//       date
-//     })
-
-//     post.save()
-//     .then(post => {
-//       res.redirect('./posts/timeline') //revoir lien 
-//     })
-//     .catch(err => {
-//       res.render('post-add'); //revoir lien 
-//     })
-// })
-
 router.post('/posts/add', (req, res, next) => {
-    console.log('USER ', req.user);
-    const creatorId = req.user._id;
-    const { picture, legende } = req.body;
-    const newPost = new Post({ creatorId, picture, legende })
-    newPost.save()
-      .then((post) => {
-        res.redirect('/timeline'); // revoir lien
-      })
-      .catch((err) => {
-        next(err); // display error
-      })
-    ;
-  });
+Post.create({
+    legende: req.body.legende, 
+    creatorId: req.body.id,
+    picture : req.body.picture
+})
+.then((post) => {
+    res.redirect('/timeline'); 
+ })
+.catch((err) => {
+    next(err); 
+});
+});
 
 // EDIT POST page
 
@@ -72,8 +52,5 @@ router.post('/posts/edit', (req, res, next) => {
       })
     ;
   });
-  
-
-
 
 module.exports = router;
