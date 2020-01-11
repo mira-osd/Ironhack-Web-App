@@ -38,40 +38,46 @@ router.get('/posts/add', (req, res, next) => {
 });
 
 router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
-Post.create({
-    legende: req.body.legende, 
-    creatorId: req.body.id,
-    post_pic : req.file.url,
-    pictureName: req.file.originalname
-
-})
-.then((post) => {
-    res.redirect('/timeline'); 
- })
-.catch((err) => {
-    next(err); 
-});
+  console.log('userid=', req.user.id);
+  Post.create({
+      legende: req.body.legende, 
+      creatorId: req.user.id,
+      post_pic : req.file.url,
+      pictureName: req.file.originalname
+  })
+  .then((post) => {
+      res.redirect('/timeline'); 
+  })
+  .catch(next);
 });
 
 
 
 // EDIT POST page
 
-// router.get('/posts/edit', (req, res, next) => {
-//     res.render('posts/post-edit');
-// });
+router.get('/posts/edit', (req, res, next) => {
+  Post.findOne({_id: req.query.post_id})
+  .then((post)=> {
+    res.render('posts/post-edit',{
+      post:post
+  })
+})
+  .catch(next);
+});
 
-// router.post('/posts/edit', (req, res, next) => {
-//     const { post_pic, legende} = req.body;
+router.post('/posts/edit',uploadCloud.single('post_pic'),(req, res, next) => {
+    const legende = req.body.legende;
+    const post_pic = req.file.url;
+    const pictureName = req.file.originalname
     
-//     Post.update({_id: req.query.book_id}, { $set: {post-pic, legende}})
-//       .then((post) => {
-//         res.redirect('/timeline');
-//       })
-//       .catch((error) => {
-//         next(error);
-//       })
-//     ;
-//   });
+    Post.update({_id: req.query.post_id}, { $set: {post_pic, legende}})
+      .then((post) => {
+        res.redirect('/timeline');
+      })
+      .catch((error) => {
+        next(error);
+      })
+    ;
+  });
 
 module.exports = router;

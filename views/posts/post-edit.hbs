@@ -1,10 +1,11 @@
-<form action="/post-edit" method="POST" enctype="multipart/form-data">
+<h1>Modifie ton post</h1>
+<form action="/posts/edit?post_id={{post._id}}" method="POST" enctype="multipart/form-data">
 
     <label for="post_pic">Choisis ta photo : </label>
-    <input id="post_pic" type="file" accept="image/png, image/jpeg" name="post_pic">
+    <input id="post_pic" type="file" accept="image/png, image/jpeg" name="post_pic" value="{{post.post_pic}}">
 
     <label for="legende"> Ecris une légende :</label>
-    <input id="legende" type="text" name="legende"> 
+    <input id="legende" type="text" name="legende" value="{{post.legende}}"> 
 
   
   <button type="submit">
