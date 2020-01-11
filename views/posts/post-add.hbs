@@ -1,1 +1,15 @@
-ADD Formulaire création d'un nouveau post 
+<form action="/posts/add" method="POST">
+
+    <label for="post-pic">Choisis ta photo : </label>
+    <input id="post-pic" type="file" accept="image/png, image/jpeg" name="picture">
+
+    <label for="legende"> Ecris une légende :</label>
+    <input id="legende" type="text" name="legende"> 
+
+  
+  <button type="submit">
+    CRÉER MA PUBLICATION
+  </button>
+</form>
+
+<a href="/timeline">Quitter</a>

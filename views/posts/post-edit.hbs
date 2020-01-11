@@ -1,1 +1,15 @@
-Formulaire permettant d'updater un post 
+<form action="/post-edit" method="POST">
+
+    <label for="post-pic">Choisis ta photo : </label>
+    <input id="post-pic" type="file" accept="image/png, image/jpeg" name="post-pic">
+
+    <label for="legende"> Ecris une légende :</label>
+    <input id="legende" type="text" name="legende"> 
+
+  
+  <button type="submit">
+    MODIFIER MA PUBLICATION
+  </button>
+</form>
+
+<a href="/timeline">Quitter</a>

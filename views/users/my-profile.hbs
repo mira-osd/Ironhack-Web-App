@@ -1,1 +1,36 @@
-MY PROFILE 
+<header>
+    <nav>
+        <div>
+            <img src="./images/logo.png" alt="logo" class="logo">
+            {{!-- ici mettre l'id du user --}}
+            {{!-- ici mettre la bio du user --}}
+            <a href="">Paramètres</a>
+
+        </div>
+    </nav>
+
+    <div class="show-post">
+
+        {{#each posts}}
+            <a href="/posts/edit?post_id={{this._id}}" class="edit-button">EDIT</a>
+        {{/each}}
+
+    </div>
+<footer>
+
+<a href="/views/posts/timeline.hbs">
+<img src="/public/images/timeline.png" class="timeline-img">
+</a>
+
+<a href="/views/posts/post-add.hbs">
+<img src="/public/images/add.png" class="add-post">
+</a>
+
+<a href="">
+<img src="/public/images/disconnet.png" class="disconnet">
+</a>
+
+</footer>
+
+   
+</header>

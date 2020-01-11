@@ -49,7 +49,7 @@ router.post('/signup', (req, res, next) =>{
     });
   })
   .catch(err => {
-    res.render('/authentification/signup'); 
+    res.render('/authentication/signup'); 
   })
 })
 .catch(err => next(err))

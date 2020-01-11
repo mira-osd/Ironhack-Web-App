@@ -1,10 +1,16 @@
 const mongoose = require('mongoose');
 const {Schema} = mongoose;
+const User = require('./user');
 
 const postSchema = new Schema({
-  title: String,
+  creatorId: { type: Schema.Types.ObjectId, ref: 'User' },
+  picture: String,
+  legende: String, 
 },{
-    timestamps: true
+    timestamps: {
+      createdAt: "createdAt",
+      updatedAt: "updatedAt"
+    }
 });
 
 const Post = mongoose.model('Post', postSchema);
