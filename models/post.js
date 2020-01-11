@@ -4,7 +4,8 @@ const User = require('./user');
 
 const postSchema = new Schema({
   creatorId: { type: Schema.Types.ObjectId, ref: 'User' },
-  picture: String,
+  post_pic: String,
+  pictureName: String,
   legende: String, 
 },{
     timestamps: {

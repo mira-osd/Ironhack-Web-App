@@ -1,7 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 
-const User = require('../models/user')
+const User = require('../models/user');
+
+const uploadCloud = require('../config/cloudinary.js');
 
 /* CREATE PROFILE page*/
 router.get('/create-profile', (req, res, next) => {
@@ -14,16 +16,17 @@ router.get('/create-profile', (req, res, next) => {
     .catch(next)
   });
 
-router.post('/create-profile', (req, res,next) => {
+router.post('/create-profile', uploadCloud.array('photo'),(req, res,next) => {
+    
     User.update({_id:req.user.id}, {$set: {
       username: req.body.username,
-      icon: req.body.url,
-      favorite_pic: req.body.url,
+      icon: req.files[0].url,
+      favorite_pic: req.files[1].url,
       bio: req.body.bio,
       city: req.body.city
     }})
     .then(user => {
-      res.redirect('../timeline');  
+      res.redirect('../timeline');
     })
     .catch((err) => {
       next(err);
@@ -36,6 +39,8 @@ router.post('/create-profile', (req, res,next) => {
 router.get('/update-profile', (req, res, next) => {
   res.render('users/update-profile');
 });
+
+
 
 /*VIEW PROFILE page*/
 

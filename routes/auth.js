@@ -8,6 +8,7 @@ const bcryptSalt = 10;
 const User = require('../models/user')
 
 
+
 /* 1.SIGN UP */
 
 router.get('/signup', (req, res) => {
@@ -64,7 +65,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('local', {
-  successRedirect : './timeline',
+  successRedirect : '/timeline',
   failureRedirect : '/login',
   failureFlash : true
 }));

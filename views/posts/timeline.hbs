@@ -13,6 +13,15 @@
       
 
     </nav>
+    </header>
 
-    {{!-- les posts à faire --}}
-</header>
+    {{#each post}}
+    <li class="post">
+      {{creatorId.username}}
+      {{creatorId.icon}}
+      <img src="{{post_pic}}">
+      {{legende}}
+    </li>
+    {{/each}}
+
+

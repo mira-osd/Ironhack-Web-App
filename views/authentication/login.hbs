@@ -1,17 +1,19 @@
 <form action="/login" method="POST">
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username">
+
+  <label for="email">E-mail</label>
+  <input id="email" type="email" name="email">
   
   <label for="password">Mot de passe</label>
   <input id="password" type="password" name="password">
 
-   {{#if errorMessage}}
+  {{#if errorMessage}}
   <div class="error-message">{{errorMessage}}</div>
   {{/if}}
   
   <button type="submit">
     SE CONNECTER
   </button>
+
 </form>
 
 <a href="/signup">Vous n'avez pas de compte ?</a>

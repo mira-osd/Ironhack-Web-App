@@ -62,7 +62,9 @@ passport.deserializeUser((id, cb) => {
 });
 
 passport.use(new LocalStrategy(
-  {passReqToCallback: true},
+  {passReqToCallback: true,
+    usernameField: 'email',
+  },
   (...args) => {
     const [req,,, done] = args;
 
