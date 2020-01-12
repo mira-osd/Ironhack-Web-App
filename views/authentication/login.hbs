@@ -1,19 +1,24 @@
+<h1>Bienvenue</h1>
 <form action="/login" method="POST">
-
+<div class="formulaire-login">
   <label for="email">E-mail</label>
   <input id="email" type="email" name="email">
   
   <label for="password">Mot de passe</label>
   <input id="password" type="password" name="password">
+  </div>
 
   {{#if errorMessage}}
   <div class="error-message">{{errorMessage}}</div>
   {{/if}}
   
-  <button type="submit">
+  <button type="submit" class="connect-button2">
     SE CONNECTER
   </button>
 
 </form>
 
-<a href="/signup">Vous n'avez pas de compte ?</a>
+<div class="account-message2">
+  <p>Vous n'avez pas de compte ?</p>
+  <a href="/signup">Sign up</a>
+</div>
