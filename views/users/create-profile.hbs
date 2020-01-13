@@ -1,24 +1,37 @@
+<section id="create-profile">
 <h1>Crée ton profil</h1>
 
+<div class="contenu-profile">
 <form action="/users/create-profile" method="POST" enctype="multipart/form-data">
-
+    <li>
     <label for="username"> Nom d'utilisateur :</label>
     <input id="username" type="text" name="username">
-
-    <label for="icon">Choisis ta photo de profile :</label>
+    </li>
+    
+    <li>
+    <label for="icon">Choisis ta photo de profil :</label>
     <input id="icon" type="file" name="photo">
+    </li>
 
+    <li>
     <label for="favorite_pic">Télécharge la photo de ta tenue préférée :</label>
     <input id="favorite_pic" type="file" name="photo">
+    </li>
 
+    <li>
     <label for="bio"> Rédige ta biographie : </label>
-    <inpur id ="bio" type="text" name="bio"></inpur>
+    <textarea id ="bio" type="text" name="bio" maxlength="130"></textarea>
+    </li>
    
+    <li>
     <label for="city">Dans quelle ville fais-tu ton shopping ?</label>
     <input id="city" type="text" name="city">
+    </li>
 
-    <button type="submit">VALIDER</button>
+    <button id="button-profile" type="submit">VALIDER</button>
 </form>
+</div>
+</section>
 
 
 

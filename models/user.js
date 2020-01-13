@@ -8,7 +8,9 @@ const userSchema = new Schema({
   icon: String,
   favorite_pic: String, 
   bio: String,
-  city: String
+  city: String,
+  facebookId: String,
+  instagramId: String,
 },{
     timestamps: true
 });

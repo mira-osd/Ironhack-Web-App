@@ -1,24 +1,36 @@
-<h1>Bienvenue</h1>
-<form action="/login" method="POST">
-<div class="formulaire-login">
-  <label for="email">E-mail</label>
-  <input id="email" type="email" name="email">
-  
-  <label for="password">Mot de passe</label>
-  <input id="password" type="password" name="password">
-  </div>
+<body id="body-login">
+  <section class="block-login">
+  <h1>Ravis de vous revoir !</h1>
+    <form action="/login" method="POST">
+      <div class="formulaire-login">
+       <li>
+        <label for="email">E-mail :</label>
+        <input id="email" type="email" name="email">
+       </li>
 
-  {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
+      <li>
+        <label for="password">Mot de passe :</label>
+       <input id="password" type="password" name="password">
+      </li> 
+      </div>
+
+    {{#if errorMessage}}
+      <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
   
-  <button type="submit" class="connect-button2">
-    SE CONNECTER
-  </button>
+      <button type="submit" class="connect-button2">
+        SE CONNECTER
+     </button>
+
+      <div class="facebook-button">
+      <img src="./images/facebook.png" class="facebook">
+      <a href="/login/facebook">Continuer avec Facebook</a>
+      </div>
+
 
 </form>
 
-<div class="account-message2">
-  <p>Vous n'avez pas de compte ?</p>
-  <a href="/signup">Sign up</a>
-</div>
+  <a href="/signup">Vous n'avez pas de compte ?</a>
+
+</section>
+</body>

@@ -1,16 +1,22 @@
-<h1>Crée un nouveau post</h1>
+<section id="post-add">
+<h1>Crée une nouvelle publication</h1>
 <form action="/posts/add" method="POST" enctype="multipart/form-data">
-
+  <li id="post-pic">
     <label for="post-pic">Choisis ta photo : </label>
-    <input id="post_pic" type="file" accept="image/png, image/jpeg" name="post_pic">
+    <input id="postpic-area" type="file" accept="image/png, image/jpeg" name="post_pic">
+  </li>
 
+  <li class="legende"> 
     <label for="legende"> Ecris une légende :</label>
-    <input id="legende" type="text" name="legende"> 
+    <textarea id="legende-area" type="text" name="legende" maxlength="300"></textarea>
+  </li>
 
   
-  <button type="submit">
-    CRÉER MA PUBLICATION
-  </button>
-</form>
+  <button class="post-button" type="submit">Je valide</button>
 
+</form>
+</section>
+
+<div class="quitter">
 <a href="/timeline">Quitter</a>
+</div>

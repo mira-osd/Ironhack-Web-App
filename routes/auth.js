@@ -70,6 +70,11 @@ router.post('/login', passport.authenticate('local', {
   failureFlash : true
 }));
 
+router.get('/login/facebook', passport.authenticate('facebook'));
+router.get('/login/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+  failureRedirect: '/login' }));
+
 router.get('/logout', (req, res) => {
     req.logout();
     res.redirect('/');

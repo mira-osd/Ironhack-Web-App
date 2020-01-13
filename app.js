@@ -15,6 +15,7 @@ const session            = require('express-session');
 const flash              = require('connect-flash');
 const MongoStore         = require('connect-mongo')(session);
 const User               = require('./models/user.js')
+const FacebookStrategy = require('passport-facebook').Strategy;
 
 
 // connection à Mongoose 
@@ -87,6 +88,31 @@ passport.use(new LocalStrategy(
   }
 ));
 
+// AUTH FACEBOOK
+
+passport.use(new FacebookStrategy({
+  clientID: "1260949300756643",
+  clientSecret: "248450ecc28fcf21ee1b7886a2c3af45",
+  callbackURL: "http://localhost:3000/login/facebook/callback"
+},
+function(accessToken, refreshToken, profile, done) {
+  User.findOne({facebookId: profile.id})
+  .then(user => {
+    // If found, login with that user:
+    if (user) {
+      done(null, user);
+      return;
+    }});
+
+  User.create({ facebookID: profile.id })
+            .then(newUser => {
+              done(null, newUser);
+            })
+            //.catch(err => done(err))
+          ;
+        })
+       //.catch(err => done(err))
+);
 
 
 // Express View engine setup
@@ -106,7 +132,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'Projet 2';
 
 
 const index = require('./routes/index');
@@ -120,7 +146,5 @@ app.use('/', posts)
 
 const authRoutes = require('./routes/auth');
 app.use('/', authRoutes);
-
-
 
 module.exports = app;
