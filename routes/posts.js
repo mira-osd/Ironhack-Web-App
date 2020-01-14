@@ -51,26 +51,21 @@ router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
   .catch(next);
 });
 
-
-
 // EDIT POST page
 
-router.get('/posts/edit', (req, res, next) => {
-  Post.findOne({_id: req.query.post_id})
-  .then((post)=> {
-    res.render('posts/post-edit',{
-      post:post
-  })
-})
-  .catch(next);
+router.get('/posts/:id/edit', (req, res, next) => {
+  Post.findOne({_id: req.params.id})
+  .then(post => res.render('posts/post-edit', {post}))
+  .catch(err => next(err))
+;
 });
 
-router.post('/posts/edit',uploadCloud.single('post_pic'),(req, res, next) => {
-    const legende = req.body.legende;
-    const post_pic = req.file.url;
-    const pictureName = req.file.originalname
-    
-    Post.update({_id: req.query.post_id}, { $set: {post_pic, legende}})
+router.post('/posts/:id/edit',uploadCloud.single('post_pic'),(req, res, next) => {
+  const post_pic = req.file.url;
+  const legende = req.body.legende;
+  const pictureName = req.file.originalname; 
+
+    Post.update({_id: req.params.id}, { $set: {post_pic, legende, pictureName}})
       .then((post) => {
         res.redirect('/timeline');
       })

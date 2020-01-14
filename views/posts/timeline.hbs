@@ -3,20 +3,22 @@
       <a href="/posts/add">
         <img src="./images/add.png" class="add-post">
       </a>
-
+      <a href="/users/my-profile">
       <img src="./images/icondefault.png" class="icon-default">
+      </a>
       
     </div>
 
     {{#each post}}
     <li class="post">
       {{creatorId.username}}
-      {{creatorId.icon}}
+      <img src="{{creatorId.icon}}" alt="">
       <img src="{{post_pic}}">
       {{legende}}
-      <a href ="/posts/edit?post_id={{post._id}}">
+      <a href ="posts/{{id}}/edit">
       <img src="./images/edit.png" class="edit-post">
       </a>
+      <a href="upd"
     </li>
     {{/each}}
 

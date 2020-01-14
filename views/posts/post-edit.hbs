@@ -1,6 +1,6 @@
 <section id="post-edit">
 <h1>Modifie ton post</h1>
-<form action="/posts/edit?post_id={{post._id}}" method="POST" enctype="multipart/form-data">
+<form action="/posts/{{post.id}}/edit" method="POST" enctype="multipart/form-data">
     <li id="post-pic">
     <label for="post_pic">Choisis ta photo : </label>
     <input id="postpic-area" type="file" accept="image/png, image/jpeg" name="post_pic" value="{{post.post_pic}}">
