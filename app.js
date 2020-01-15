@@ -15,12 +15,13 @@ const session            = require('express-session');
 const flash              = require('connect-flash');
 const MongoStore         = require('connect-mongo')(session);
 const User               = require('./models/user.js')
-const FacebookStrategy = require('passport-facebook').Strategy;
+const FacebookStrategy   = require('passport-facebook').Strategy;
+const dotenv             = require("dotenv").config();
 
 
 // connection à Mongoose 
 mongoose
-  .connect('mongodb://localhost/projet-2', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useUnifiedTopology: true, useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -132,7 +133,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Projet 2';
+app.locals.title = 'Dress Code';
 
 
 const index = require('./routes/index');
