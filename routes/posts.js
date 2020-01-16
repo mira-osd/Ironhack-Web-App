@@ -38,6 +38,10 @@ router.get('/posts/add', (req, res, next) => {
 });
 
 router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
   console.log('userid=', req.user.id);
   Post.create({
       legende: req.body.legende, 
@@ -51,9 +55,23 @@ router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
   .catch(next);
 });
 
+// DELETE POST page 
+
+router.get('/posts/:id/delete', (req, res, next) => {
+  Post.findByIdAndRemove({_id: req.params.id})
+    .then(post => res.redirect('/timeline'))
+    .catch(err => next(err))
+  ;
+});
+
+
 // EDIT POST page
 
 router.get('/posts/:id/edit', (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
   Post.findOne({_id: req.params.id})
   .then(post => res.render('posts/post-edit', {post}))
   .catch(err => next(err))
@@ -61,6 +79,10 @@ router.get('/posts/:id/edit', (req, res, next) => {
 });
 
 router.post('/posts/:id/edit',uploadCloud.single('post_pic'),(req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
   const post_pic = req.file.url;
   const legende = req.body.legende;
   const pictureName = req.file.originalname; 

@@ -1,36 +1,53 @@
 <header>
-    <nav>
+  
+  
         <div>
-            <img src="./images/logo.png" alt="logo" class="logo">
+            <img src="{{icon}}">
             {{!-- ici mettre l'id du user --}}
             {{!-- ici mettre la bio du user --}}
             <a href="/users/update-profile">Modifier mon profil</a>
+            {{app.user.username}}
 
         </div>
-    </nav>
 
+</header>
+
+  {{#each posts}}
     <div class="show-post">
+        <a href="/posts/{{this._id}}/edit"class="edit-button">EDIT</a>
 
-        {{#each posts}}
-            <a href="/posts/edit?post_id={{this._id}}" class="edit-button">EDIT</a>
-        {{/each}}
+    <li class="post">
+      {{req.user.username}}
+      <img src="{{creatorId.icon}}" alt="">
+      <img src="{{post_pic}}">
+      {{legende}}
+      <a href ="/posts/{{id}}/edit">
+      <img src="/images/edit.png" class="edit-post">
+      </a>
+      <a href="/posts/{{id}}/delete">
+      <img src="/images/delete.png" class="delete-post">
+      </a>
+    </li>
+    {{/each}}
+
 
     </div>
+
 <footer>
 
-<a href="/views/posts/timeline.hbs">
-<img src="/public/images/timeline.png" class="timeline-img">
+<a href="/timeline">
+<img src="/images/timeline.png" class="timeline-img">
 </a>
 
-<a href="/views/posts/post-add.hbs">
-<img src="/public/images/add.png" class="add-post">
+<a href="/posts/add">
+<img src="/images/add.png" class="add-post">
 </a>
 
-<a href="">
-<img src="/public/images/disconnet.png" class="disconnet">
+<a href="/logout">
+<img src="/images/disconnet.png" class="disconnet">
 </a>
 
 </footer>
 
    
-</header>
+

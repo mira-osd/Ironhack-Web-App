@@ -1,12 +1,14 @@
     <div class="nav-timeline">
-      <img src="./images/logo.png" class="logo">
+      <img src="/images/logo.png" class="logo">
       <a href="/posts/add">
-        <img src="./images/add.png" class="add-post">
+      <img src="/images/add.png" class="add-post">
       </a>
       <a href="/users/my-profile">
-      <img src="./images/icondefault.png" class="icon-default">
+      <img src="/images/icondefault.png" class="icon-default">
       </a>
-      
+      <a href="/logout">
+      <img src="/images/disconnet.png" class="disconnet">
+      </a>
     </div>
 
     {{#each post}}
@@ -15,10 +17,13 @@
       <img src="{{creatorId.icon}}" alt="">
       <img src="{{post_pic}}">
       {{legende}}
-      <a href ="posts/{{id}}/edit">
-      <img src="./images/edit.png" class="edit-post">
+      <a href ="/posts/{{id}}/edit">
+      <img src="/images/edit.png" class="edit-post">
       </a>
-      <a href="upd"
+
+      <a href="/posts/{{id}}/delete">
+      <img src="/images/delete.png" class="delete-post">
+      </a>
     </li>
     {{/each}}
 

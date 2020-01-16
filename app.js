@@ -133,7 +133,7 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 
 // default value for title local
-app.locals.title = 'Dress Code';
+app.locals.title = 'Open Dressing';
 
 
 const index = require('./routes/index');
