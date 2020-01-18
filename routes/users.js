@@ -5,14 +5,14 @@ const User = require('../models/user');
 const Post = require("../models/post")
 
 const uploadCloud = require('../config/cloudinary.js');
-const mongoose           = require('mongoose');
+const mongoose    = require('mongoose');
 
 
 /* CREATE PROFILE page*/
 router.get('/create-profile', (req, res, next) => {
     
     User.findById(req.user.id).then(user => {
-      res.render('users/create-profile',{
+      res.render('users/create-profile', {
         user:req.user
       });
     })
@@ -25,6 +25,7 @@ router.post('/create-profile', uploadCloud.fields([{ name: 'icon' }, { name: 'fa
   const favorite_pic = req.files.favorite_pic ? req.files.favorite_pic[0].url : req.user.favorite_pic;
   const bio = req.body.bio;
   const city= req.body.city
+
     User.update({_id:req.user.id}, {$set: {username, icon, favorite_pic, bio, city}})
     .then(user => {
       res.redirect('../timeline');

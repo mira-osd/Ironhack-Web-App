@@ -4,6 +4,7 @@ const router  = express.Router();
 const User = require('../models/user');
 const Post = require('../models/post');
 
+const moment = require('moment');
 const uploadCloud = require('../config/cloudinary.js');
 
 // TIMELINE
@@ -13,18 +14,18 @@ router.get('/timeline', (req, res, next) => {
     res.redirect('/login');
     return;
   }
-
-  Post.find()
+  
+  Post.find().sort({createdAt: -1})
   .populate('creatorId')
   .then(initialPosts => {
     const finalPosts = initialPosts.map(onePost => {
       onePost.isAuthor = onePost.creatorId._id.toString() === req.user._id.toString();
+      onePost.dateFromNow = moment(onePost.createdAt).fromNow();
       return onePost;
     });
-
     res.render('posts/timeline', {
       user:req.user,
-      posts: finalPosts
+      posts: finalPosts,
     });
   })
   .catch(next)

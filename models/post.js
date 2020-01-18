@@ -6,7 +6,7 @@ const postSchema = new Schema({
   creatorId: { type: Schema.Types.ObjectId, ref: 'User' },
   post_pic: String,
   pictureName: String,
-  legende: String, 
+  legende: String,
 },{
     timestamps: {
       createdAt: "createdAt",

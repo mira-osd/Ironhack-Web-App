@@ -16,14 +16,18 @@
    
     <li class="post">
 
+
       {{#if isAuthor}}
       <a href = "/users/my-profile">{{creatorId.username}}</a>
       {{/if}}
 
       <a href = "/users/{{id}}/profile">{{creatorId.username}}</a>
+
+      {{dateFromNow}}
       <img src="{{creatorId.icon}}" alt="">
       <img src="{{post_pic}}">
       {{legende}}
+      
   
 
       {{#if isAuthor}}

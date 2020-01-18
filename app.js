@@ -85,9 +85,8 @@ passport.use(new LocalStrategy(
         done(null, user);
       })
       .catch(err => done(err))
-    ;
-  }
-));
+    
+  }));
 
 // AUTH FACEBOOK
 
