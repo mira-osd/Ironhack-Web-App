@@ -17,8 +17,8 @@
         <a href="/posts/{{this._id}}/edit"class="edit-button">EDIT</a>
 
     <li class="post">
-      {{req.user.username}}
-      <img src="{{creatorId.icon}}" alt="">
+      {{username}}
+      <img src="{{icon}}">
       <img src="{{post_pic}}">
       {{legende}}
       <a href ="/posts/{{id}}/edit">
@@ -28,10 +28,8 @@
       <img src="/images/delete.png" class="delete-post">
       </a>
     </li>
+      </div>
     {{/each}}
-
-
-    </div>
 
 <footer>
 
@@ -44,7 +42,7 @@
 </a>
 
 <a href="/logout">
-<img src="/images/disconnet.png" class="disconnet">
+<img src="/images/logout.png" class="logout">
 </a>
 
 </footer>

@@ -70,22 +70,17 @@ router.get('/profile', (req, res, next) => {
 /*VIEW MY PROFILE page*/
 
 router.get('/my-profile', (req, res, next) => {
-  const user = req.user
-  // User.findById(req.user.id)
-  // .then(profile => res.render('users/my-profile', {profile}))
-  console.log("j'entre dans mon profil",user)
-
+  const user = req.user;
 
   Post.find({
     'creatorId' : { $in : [
       mongoose.Types.ObjectId(req.user.id)
-    ]
-    }
+    ]}
 }).then(posts => {
   console.log('posts', posts)
   res.render('users/my-profile', {
     user: req.user,
-    posts: posts
+    posts: posts,
   })
 })
 .catch(next)
