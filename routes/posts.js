@@ -16,11 +16,15 @@ router.get('/timeline', (req, res, next) => {
 
   Post.find()
   .populate('creatorId')
-  .then(post => {
-    console.log('post', post)
+  .then(initialPosts => {
+    const finalPosts = initialPosts.map(onePost => {
+      onePost.isAuthor = onePost.creatorId._id.toString() === req.user._id.toString();
+      return onePost;
+    });
+
     res.render('posts/timeline', {
       user:req.user,
-      post:post
+      posts: finalPosts
     });
   })
   .catch(next)
@@ -58,6 +62,10 @@ router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
 // DELETE POST page 
 
 router.get('/posts/:id/delete', (req, res, next) => {
+  if (!req.user) {
+    res.redirect('/login');
+    return;
+  }
   Post.findByIdAndRemove({_id: req.params.id})
     .then(post => res.redirect('/timeline'))
     .catch(err => next(err))
@@ -83,11 +91,12 @@ router.post('/posts/:id/edit',uploadCloud.single('post_pic'),(req, res, next) =>
     res.redirect('/login');
     return;
   }
+  const creatorId = req.user.id;
   const post_pic = req.file.url;
   const legende = req.body.legende;
   const pictureName = req.file.originalname; 
 
-    Post.update({_id: req.params.id}, { $set: {post_pic, legende, pictureName}})
+    Post.update({_id: req.params.id}, { $set: { creatorId, post_pic, legende, pictureName}})
       .then((post) => {
         res.redirect('/timeline');
       })

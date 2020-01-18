@@ -13,12 +13,10 @@
 </header>
 
   {{#each posts}}
-    <div class="show-post">
-        <a href="/posts/{{this._id}}/edit"class="edit-button">EDIT</a>
-
+    <div class="show-post"> 
     <li class="post">
-      {{username}}
-      <img src="{{icon}}">
+      {{creatorId.username}}
+      <img src="{{creatorId.icon}}">
       <img src="{{post_pic}}">
       {{legende}}
       <a href ="/posts/{{id}}/edit">

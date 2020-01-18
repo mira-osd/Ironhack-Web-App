@@ -11,20 +11,31 @@
       </a>
     </div>
 
-    {{#each post}}
+    {{#each posts}}
+
+   
     <li class="post">
-      {{creatorId.username}}
+
+      {{#if isAuthor}}
+      <a href = "/users/my-profile">{{creatorId.username}}</a>
+      {{/if}}
+
+      <a href = "/users/{{id}}/profile">{{creatorId.username}}</a>
       <img src="{{creatorId.icon}}" alt="">
       <img src="{{post_pic}}">
       {{legende}}
+  
+
+      {{#if isAuthor}}
       <a href ="/posts/{{id}}/edit">
       <img src="/images/edit.png" class="edit-post">
       </a>
-
       <a href="/posts/{{id}}/delete">
       <img src="/images/delete2.png" class="delete-post">
       </a>
+      {{/if}}
     </li>
     {{/each}}
 
-
+    
+  

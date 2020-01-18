@@ -19,7 +19,7 @@ router.get('/create-profile', (req, res, next) => {
     .catch(next)
   });
 
-router.post('/create-profile', uploadCloud.array([{ name: 'icon' }, { name: 'favorite_pic' }]),(req, res,next) => {
+router.post('/create-profile', uploadCloud.fields([{ name: 'icon' }, { name: 'favorite_pic' }]),(req, res,next) => {
   const username = req.body.username;
   const icon = req.files.icon ? req.files.icon[0].url : req.user.icon;
   const favorite_pic = req.files.favorite_pic ? req.files.favorite_pic[0].url : req.user.favorite_pic;
@@ -59,14 +59,6 @@ const city= req.body.city
 })
 
 
-/*VIEW PROFILE des autres users page*/
-
-router.get('/profile', (req, res, next) => {
-  User.findById(req.user.id)
-  .then(profile => res.render('users/profile', {profile}))
-  .catch(err => next(err));
-  });
-
 /*VIEW MY PROFILE page*/
 
 router.get('/my-profile', (req, res, next) => {
@@ -76,8 +68,9 @@ router.get('/my-profile', (req, res, next) => {
     'creatorId' : { $in : [
       mongoose.Types.ObjectId(req.user.id)
     ]}
-}).then(posts => {
-  console.log('posts', posts)
+})
+.populate("creatorId")
+.then(posts => {
   res.render('users/my-profile', {
     user: req.user,
     posts: posts,
@@ -93,6 +86,25 @@ router.get('/:id/delete', (req, res, next) => {
     .then(post => res.redirect('/users/my-profile'))
     .catch(err => next(err))
   ;
+});
+
+/*VIEW PROFILE des autres users page*/
+
+
+router.get('/:id/profile', (req, res, next) => {
+  
+  Post.find({_id: req.params.id})
+  .populate('creatorId')
+  .then(initPosts => {
+    const finPosts = initPosts.map(thePost=> {
+      thePost.isCreator = thePost.creatorId._id.toString() != req.user._id.toString();
+      return thePost;
+    });
+    res.render('users/profile', {
+      posts: finPosts
+    })
+  })
+  .catch(next)
 });
 
   module.exports = router;

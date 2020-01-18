@@ -1,5 +1,4 @@
 <header>
-    <nav>
         <div>
           {{#each profile}}
             <img src="/images/icondefault.png" class="icon">
@@ -10,9 +9,29 @@
 
             {{/each}}
         </div>
-    </nav>
-
+  
   <section class="show-post">
+
+    {{#each posts}}
+    {{#if isCreator}}
+
+    {{creatorId.username}}
+     <img src="{{creatorId.icon}}" alt="">
+      <img src="{{post_pic}}">
+      {{legende}}
+      <a href ="/posts/{{id}}/edit">
+      <img src="/images/edit.png" class="edit-post">
+      </a>
+
+      <a href="/posts/{{id}}/delete">
+      <img src="/images/delete2.png" class="delete-post">
+      </a>
+
+      {{/if}}
+{{/each}}
+
+
+
   </section>
   
 <footer>
