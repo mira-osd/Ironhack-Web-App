@@ -70,6 +70,7 @@ router.get('/my-profile', (req, res, next) => {
       mongoose.Types.ObjectId(req.user.id)
     ]}
 })
+.sort({createdAt: -1})
 .populate("creatorId")
 .then(posts => {
   res.render('users/my-profile', {
@@ -93,8 +94,9 @@ router.get('/:id/delete', (req, res, next) => {
 
 
 router.get('/:id/profile', (req, res, next) => {
-  
+
   Post.find({_id: req.params.id})
+  .sort({createdAt: -1})
   .populate('creatorId')
   .then(initPosts => {
     const finPosts = initPosts.map(thePost=> {
@@ -102,6 +104,7 @@ router.get('/:id/profile', (req, res, next) => {
       return thePost;
     });
     res.render('users/profile', {
+      user: req.user,
       posts: finPosts
     })
   })

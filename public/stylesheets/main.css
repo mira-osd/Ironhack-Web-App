@@ -5,6 +5,8 @@ body {
   padding: 0;
   margin: 0;
   font-family:'Quicksand', sans-serif;
+  background: white;
+  overflow: scroll;
 }
 /* 
 
@@ -21,16 +23,18 @@ nav{
   flex-wrap: wrap; 
   justify-content:space-between;
   position: fixed;
-  opacity: 0.8;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: #edeaeb;
   width: 100%;
   height: 70px;
-  background-color: rgba(223, 168, 168, 0.99);
-  padding:17.5px 0;
+  background-color: white;
+  padding: 0;
 }
 
-.logo {
-  width: 50px;
-  height: 50px; 
+.logo-index {
+  width: 61px;
+  height: 61px; 
 }
 
  nav, a {
@@ -38,6 +42,7 @@ nav{
    color: black;
    font-size: 17px;
    margin-right: 20px;
+   padding: 15px 0;
  }
 
 
@@ -56,17 +61,33 @@ nav{
   margin: 15px; 
 }
 
-.first, .second, .third {
+
+.first {
   margin-bottom: 25px;
-  background-color:  rgba(223, 168, 168, 0.99)
+  background-color:  #ffcec4;
+  border-radius:  50% 20% / 10% 40%;
+}
+
+.second {
+  margin-bottom: 25px;
+  background-color:  #ddb2b3;
+  border-radius:  20% 50% / 10% 40%;
+}
+
+.third {
+  margin-bottom: 25px;
+  background-color:  rgba(223, 168, 168, 0.99); 
+  border-radius:  80% 20% / 10% 60%;
+}
+
+.second, h3 {
+  padding-right: 18px;
 }
 
 .description, p {
   font-size: 15px;
   padding: 10px;
 }
-
-
 
 /* 
 
@@ -87,7 +108,7 @@ nav{
   margin-right: auto;
   margin-left: auto;
   max-width: 90%;
-  margin-top: 110px;
+  height: 95vh;
   box-shadow:0px 0px 10px 5px #b8b8b6;
   border-radius: 18px;
 }
@@ -98,10 +119,6 @@ nav{
 }   
 
 .formulaire-signup {
-  /* display: flex; 
-  flex-wrap: wrap; 
-  flex-direction: column;
-  align-items: center; */
   display: flex; 
   flex-direction: column;
   align-items: center;;
@@ -109,6 +126,12 @@ nav{
   margin-right: auto;
   margin-left: auto;
  
+}
+
+.big-logo {
+  margin-top: 50px;
+  width: 215px;
+  height: 110px;
 }
 
 #email{
@@ -131,31 +154,28 @@ li {
 }
 
 .connect-button {
-  /* border-radius: 1em;
-  font-weight:bold;
-  padding: 10px;
-  background-color:rgba(223, 168, 168, 0.99);
-  border-color: transparent;
-  margin-top: 20px;
-  margin-left: 130px; 
-  */
-  border-radius: 1em;
-  font-weight:bold;
-  padding: 18px;
-  font-size: 13px;
-  background-color:rgba(223, 168, 168, 0.99);
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 2em;
+  padding: 18px 60px;
+  font-size: 14px;
+  background-color:#80e4d5;
   border-color: transparent;
   margin: 20px 0;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .block-signup, a{
   font-size: 15px;
   text-align: center;
-  padding-bottom: 40px;
+
+}
+
+.back-login {
+  color: #af5b79;
+  font-weight: 900;
 }
 
 /* 
@@ -238,8 +258,8 @@ li{
 }
 
 .facebook{
-  width: 38px;
-  padding: 1px 0;
+  width: 30px;
+  height: 30px;
 
 }
 
@@ -255,7 +275,7 @@ li{
 }
 
 .facebook-button a {
-  padding: 15px 30px;
+  padding: 15px 10px;
 }
 /* 
 ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗
@@ -329,19 +349,88 @@ li{
   display:flex;
   flex-wrap: wrap; 
   justify-content:space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
   width: 100%;
-  height: 80px;
-  background-color: rgba(223, 168, 168, 0.99);
-  padding:17.5px 0;
+  height: 70px;
+  background-color: white;
+  padding:10px;
+  border-bottom-style: ridge;
+  border-bottom-width: 1.4px;
+}
+
+.logo {
+  width: 58px;
+  height: 52px;
 }
 
 .add-post{
   width: 50px;
 }
 
-.icon-default{
-  width: 50px;
-  height: 50px;
+.avatar{
+  border-radius: 50%;
+  width: 49px;
+  height: 49px;
+}
+
+.post-timeline {
+  width: 100%;
+  background: white;
+  padding: 0;
+}
+
+.post-pic {
+  width: 100%;
+  min-height: 200px;
+  max-height: 400px;
+}
+
+.head-post {
+  display:flex;
+  height: 70px;
+  padding-top: 10px;
+}
+
+.date {
+  color: grey;
+  font-size: 12px;
+}
+
+.username {
+  padding: 23px 5px;
+  margin: 0; 
+  font-weight: 900;
+  font-size: 15px;
+}
+
+.modif-post {
+  display: flex;
+  justify-content: flex-end;
+  height: 35px
+}
+
+.legende2 {
+  font-size: 14px;
+  width: 85%;
+  border-radius: 10px;
+  border:1px solid #80e4d5;
+
+}
+
+.post-legende {
+  display: flex;
+}
+
+.edit-post {
+  width: 25px;
+  height: 25px;
+}
+
+.delete-post {
+  width: 25px;
+  height: 25px;
 }
 
 
@@ -415,6 +504,87 @@ li{
 ╚═╝     ╚═╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
 
+.nav-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 250px;
+  padding-top: 20px;
+  border-bottom-style: ridge;
+  border-bottom-width: 1.4px;
+
+}
+.avatar-profile {
+  border-radius: 50%;
+  width: 85px;
+  height: 85px;
+}
+
+.username-profile{
+  padding: 7px 0 3px 0;
+  margin: 0
+}
+
+.bio {
+  font-size: 14px;
+  padding: 5px 0;
+  margin: 0;
+  font-weight: 300;
+}
+
+.city {
+  margin: 0;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 300;
+  color: grey;
+}
+
+.location {
+  width: 13px;
+  height: 19px;
+  margin-right: 7px;
+}
+
+.modif-button {
+  border-radius: 1em;
+  font-size: 14px;
+  font-weight: 900;
+  background-color:#80e4d5;
+  border-color: transparent;
+  color: white;
+  padding: 9px;
+  margin: 0
+}
+
+.footer-profile {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content:space-between;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%; 
+  height: 55px;
+  padding: 8px;
+  background: #80e4d5;
+}
+
+.timeline-img {
+  width: 35px;
+  height: 35px
+}
+
+.addpost {
+  width: 40px;
+  height: 40px
+}
+
+.logout {
+  width: 35px;
+  height: 35px
+}
 
 /* 
  ██╗   ██╗██████╗ ██████╗  █████╗ ████████╗███████╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗

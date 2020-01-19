@@ -1,41 +1,46 @@
-<header>
-  
-  
-        <div>
-            <img src="{{icon}}">
-            {{!-- ici mettre l'id du user --}}
-            {{!-- ici mettre la bio du user --}}
-            <a href="/users/update-profile">Modifier mon profil</a>
-        
-        </div>
+  <header>
+    <div class="nav-profile">
+      <img src="{{user.icon}}" class="avatar-profile">
+      <p class="username-profile">{{user.username}}</p>
+      <p class="bio">{{user.bio}}</p>
+      <p class="city"><img src="/images/location.png" class="location">{{user.city}}</p>
+      <a href="/users/update-profile" class="modif-button">Modifier mon profil</a>
+  </div>
 
 </header>
 
-  {{#each posts}}
-    <div class="show-post"> 
-    <li class="post">
-      {{creatorId.username}}
-      <img src="{{creatorId.icon}}">
-      <img src="{{post_pic}}">
-      {{legende}}
+{{#each posts}}
+      <div class="post-timeline">
+
+        <div class="head-post">
+           <img src="{{creatorId.icon}}" class="avatar">
+             <a href = "/users/{{id}}/profile" class="username">{{creatorId.username}}</a>
+          <p class="date">{{dateFromNow}}</p>
+        </div>
+
+         <img src="{{post_pic}}" class="post-pic">
+        <div class="modif-post">
       <a href ="/posts/{{id}}/edit">
       <img src="/images/edit.png" class="edit-post">
       </a>
       <a href="/posts/{{id}}/delete">
-      <img src="/images/delete.png" class="delete-post">
+      <img src="/images/delete2.png" class="delete-post">
       </a>
-    </li>
+      </div>
+      <div class="post-legende">
+        <a href = "/users/my-profile" class="username">{{creatorId.username}}</a>
+      <p class="legende2">{{legende}}</p>
       </div>
     {{/each}}
 
-<footer>
+<footer class="footer-profile">
 
 <a href="/timeline">
 <img src="/images/timeline.png" class="timeline-img">
 </a>
 
 <a href="/posts/add">
-<img src="/images/add.png" class="add-post">
+<img src="/images/add2.png" class="addpost">
 </a>
 
 <a href="/logout">

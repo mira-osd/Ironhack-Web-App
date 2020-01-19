@@ -1,36 +1,36 @@
     <div class="nav-timeline">
-      <img src="/images/logo.png" class="logo">
+      <img src="/images/logo2.png" class="logo">
+
       <a href="/posts/add">
-      <img src="/images/add.png" class="add-post">
+       <img src="/images/add.png" class="add-post">
       </a>
-      <a href="/users/my-profile">
-      <img src="/images/icondefault.png" class="icon-default">
+
+      <a href = "/users/my-profile">
+        <img src="{{user.icon}}" class="avatar">
       </a>
-      <a href="/logout">
-      <img src="/images/logout.png" class="logout">
-      </a>
+      
     </div>
 
     {{#each posts}}
+      <div class="post-timeline">
 
-   
-    <li class="post">
+        <div class="head-post">
+           {{#if isAuthor}}
+           <a href = "/users/my-profile">
+           <img src="{{creatorId.icon}}" class="avatar">
+           </a>
+             <a href = "/users/my-profile" class="pseudo">{{creatorId.username}}</a>
+               {{else}}
+               <a href = "/users/{{id}}/profile" class="pseudo">
+               <img src="{{creatorId.icon}}" class="avatar"></a>
+             <a href = "/users/{{id}}/profile" class="pseudo">{{creatorId.username}}</a>
+         {{/if}}
+          <p class="date">{{dateFromNow}}</p>
+        </div>
 
-
-      {{#if isAuthor}}
-      <a href = "/users/my-profile">{{creatorId.username}}</a>
-      {{/if}}
-
-      <a href = "/users/{{id}}/profile">{{creatorId.username}}</a>
-
-      {{dateFromNow}}
-      <img src="{{creatorId.icon}}" alt="">
-      <img src="{{post_pic}}">
-      {{legende}}
-      
-  
-
-      {{#if isAuthor}}
+         <img src="{{post_pic}}" class="post-pic">
+        <div class="modif-post">
+          {{#if isAuthor}}
       <a href ="/posts/{{id}}/edit">
       <img src="/images/edit.png" class="edit-post">
       </a>
@@ -38,8 +38,18 @@
       <img src="/images/delete2.png" class="delete-post">
       </a>
       {{/if}}
-    </li>
+      </div>
+      <div class="post-legende">
+               {{#if isAuthor}}
+             <a href = "/users/my-profile" class="username">{{creatorId.username}}</a>
+               {{else}}
+             <a href = "/users/{{id}}/profile" class="username">{{creatorId.username}}</a>
+         {{/if}}
+      <p class="legende2">{{legende}}</p>
+      </div>
     {{/each}}
+    </div>
+
 
     
   
