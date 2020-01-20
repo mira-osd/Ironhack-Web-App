@@ -6,15 +6,17 @@
     <input id="postpic-area" type="file" accept="image/png, image/jpeg" name="post_pic" value="{{post.post_pic}}">
     </li>
 
-    <li id="legende">
+    <li class="legende">
     <label for="legende"> Ecris une légende :</label>
-    <input id="legende" type="text" name="legende" value="{{post.legende}}"> 
+    <input id="legende-area" type="text" name="legende" maxlength="300" value="{{post.legende}}"> 
     </li>
 
   
-<button class="post-button" type="submit">Je valide</button>
+<button class="post-button" type="submit">JE VALIDE</button>
 
 </form>
 </section>
 
+<div class="quitter">
 <a href="/timeline">Quitter</a>
+</div>

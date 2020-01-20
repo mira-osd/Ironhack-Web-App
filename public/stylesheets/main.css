@@ -1,4 +1,5 @@
-/* couleur principale :  #80e4d5*/
+/* couleur principale :  #80e4d5
+font : #af5b79*/
 
 *, :before, :after {box-sizing:border-box;}
 body {
@@ -6,7 +7,7 @@ body {
   margin: 0;
   font-family:'Quicksand', sans-serif;
   background: white;
-  overflow: scroll;
+
 }
 /* 
 
@@ -33,8 +34,11 @@ nav{
 }
 
 .logo-index {
-  width: 61px;
-  height: 61px; 
+  width: 59px;
+  height: 59px; 
+  position: absolute;
+  top: 4px;
+  left: 10px; 
 }
 
  nav, a {
@@ -42,7 +46,7 @@ nav{
    color: black;
    font-size: 17px;
    margin-right: 20px;
-   padding: 15px 0;
+   padding: 20px 0;
  }
 
 
@@ -82,10 +86,11 @@ nav{
 
 .second, h3 {
   padding-right: 18px;
+  font-size: 16px;
 }
 
 .description, p {
-  font-size: 15px;
+  font-size: 14px;
   padding: 10px;
 }
 
@@ -108,14 +113,16 @@ nav{
   margin-right: auto;
   margin-left: auto;
   max-width: 90%;
-  height: 95vh;
+  height: 97vh;
+  margin-top: 10px;
   box-shadow:0px 0px 10px 5px #b8b8b6;
   border-radius: 18px;
 }
 
-.block-signup h1 {
+.block-signup, h1 {
   text-align: center;
-  padding: 45px 0;
+  font-size: 19px;
+  margin-top: 14px;
 }   
 
 .formulaire-signup {
@@ -125,7 +132,6 @@ nav{
   width: 295px;
   margin-right: auto;
   margin-left: auto;
- 
 }
 
 .big-logo {
@@ -189,6 +195,7 @@ li {
 
 #body-login{
   background-color:#e0e0df;
+  margin: 0;
 }
 
 .block-login{
@@ -196,14 +203,19 @@ li {
   margin-right: auto;
   margin-left: auto;
   max-width: 90%;
-  margin-top: 110px;
+  height: 97vh;
+  margin-top: 10px;
   box-shadow:0px 0px 10px 5px #b8b8b6;
   border-radius: 18px;
 }
 .block-login, h1 {
   text-align: center;
   padding: 13px 0;
-}      
+} 
+
+.h1-auth {
+  color: #af5b79;
+}
 
 .formulaire-login {
   display: flex; 
@@ -223,17 +235,17 @@ li{
 }
 
 .connect-button2 {
-  border-radius: 1em;
-  font-weight:bold;
-  padding: 18px;
-  font-size: 13px;
-  background-color:rgba(223, 168, 168, 0.99);
+  font-family: 'Quicksand', sans-serif;
+  border-radius: 2em;
+  padding: 18px 60px;
+  font-size: 14px;
+  background-color:#80e4d5;
   border-color: transparent;
   margin: 20px 0;
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 .block-login, a{
@@ -243,24 +255,18 @@ li{
 }
 
 #button-profile {
-  border-radius: 1em;
-  font-weight:bold;
-  padding: 18px 45px;
-  font-size: 16px;
-  background-color:white;
-  color: rgba(223, 168, 168, 0.99);
+  font-family:'Quicksand', sans-serif;
+  border-radius: 2em;
+  padding: 16px 65px;
+  font-size: 15px;
+  background-color:#d687a3;
+  color: white;
   border-color: transparent;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 60px;
   margin-top: 40px;
-}
-
-.facebook{
-  width: 30px;
-  height: 30px;
-
 }
 
 .facebook-button {
@@ -272,10 +278,15 @@ li{
   margin-right: auto;
   flex-direction: row;
   margin-bottom: 40px;
+  background-image: url('/images/facebook.png');
+  background-repeat: no-repeat;
+  background-size: 35px;
+  background-position: 5% 50%;
 }
 
 .facebook-button a {
-  padding: 15px 10px;
+  padding: 15px 59px;
+  margin: 0
 }
 /* 
 ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗
@@ -286,25 +297,27 @@ li{
  ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
 
-#create-profile h1 {
+.nav-create {
   font-size: 20px;
   text-align: center;
+  background-color: #80e4d5;
+  padding-top: 8px;
 }
 
 .contenu-profile{
-  background-color: rgba(223, 168, 168, 0.99);
   padding: 20px;
-  color: white;
+  color: black;
 }
 
-.contenu-profile label {
+.contenu-profile, label {
   display: flex; 
   flex-direction: column;
+  font-size: 14px;
 }
 
 .contenu-profile li {
   margin-top: 20px;
-  border:1px solid white;
+  border:1px solid #80e4d5;
 }
 
 .contenu-profile input {
@@ -355,30 +368,50 @@ li{
   width: 100%;
   height: 70px;
   background-color: white;
-  padding:10px;
   border-bottom-style: ridge;
   border-bottom-width: 1.4px;
 }
 
+.marge {
+  margin-bottom: 60px;
+}
+
 .logo {
-  width: 58px;
-  height: 52px;
+  position: absolute;
+  top: 10%;
+  left: 4%;
+  width: 56px;
+  height: 50px;
 }
 
 .add-post{
-  width: 50px;
+  position: absolute;
+  top: 15%;
+  left: 44%;
+  width: 49px;
+  height: 49px; 
 }
 
-.avatar{
+.nav-avatar{
+  position: absolute;
+  top: 15%;
+  right: 5%;
   border-radius: 50%;
   width: 49px;
   height: 49px;
 }
 
-.post-timeline {
+.avatar {
+  border-radius: 50%;
+  width: 49px;
+  height: 49px;
+  margin-left: 5px;
+}
+
+
+.post {
   width: 100%;
   background: white;
-  padding: 0;
 }
 
 .post-pic {
@@ -390,16 +423,19 @@ li{
 .head-post {
   display:flex;
   height: 70px;
-  padding-top: 10px;
+  margin-bottom: 5px;
 }
 
 .date {
   color: grey;
   font-size: 12px;
+  position: absolute; 
+  right: 5px;
+
 }
 
 .username {
-  padding: 23px 5px;
+  padding: 30px 5px;
   margin: 0; 
   font-weight: 900;
   font-size: 15px;
@@ -408,7 +444,7 @@ li{
 .modif-post {
   display: flex;
   justify-content: flex-end;
-  height: 35px
+  height: 34px
 }
 
 .legende2 {
@@ -421,11 +457,14 @@ li{
 
 .post-legende {
   display: flex;
+  border-bottom-style: ridge;
+  border-bottom-width: 1.4px;
 }
 
 .edit-post {
   width: 25px;
   height: 25px;
+
 }
 
 .delete-post {
@@ -457,22 +496,23 @@ li{
 
 .post-button { 
   font-family:'Quicksand', sans-serif;
-  border-radius: 1em;
-  padding: 15px 25px;
+  border-radius: 2em;
+  padding: 18px 55px;
   font-size: 14px;
-  background-color:rgba(223, 168, 168, 0.99);
+  background-color:#80e4d5;
   border-color: transparent;
   margin: 40px 0;
   display: flex;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 60px;
-  width: 120px;
+  width: 180px;
 }
 
 .quitter {
   text-align: center;
   font-style: italic;
+  font-size: 15px;
 }
 
 /* 
@@ -495,6 +535,17 @@ li{
 ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
 
+.nav-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 215px;
+  padding-top: 20px;
+  border-bottom-style: ridge;
+  border-bottom-width: 1.4px;
+}
+
 /* 
 ███╗   ███╗██╗   ██╗██████╗ ██████╗  ██████╗ ███████╗██╗██╗     ███████╗
 ████╗ ████║╚██╗ ██╔╝██╔══██╗██╔══██╗██╔═══██╗██╔════╝██║██║     ██╔════╝
@@ -504,7 +555,7 @@ li{
 ╚═╝     ╚═╝   ╚═╝   ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
 
-.nav-profile {
+.nav-myprofile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -517,8 +568,8 @@ li{
 }
 .avatar-profile {
   border-radius: 50%;
-  width: 85px;
-  height: 85px;
+  width: 80px;
+  height: 80px;
 }
 
 .username-profile{
@@ -558,6 +609,14 @@ li{
   margin: 0
 }
 
+.post-avatar{
+  border-radius: 50%;
+  width: 49px;
+  height: 49px;
+  margin-left: 5px;
+  margin-top: 15px;
+}
+
 .footer-profile {
   display: flex;
   flex-wrap: wrap; 
@@ -568,22 +627,36 @@ li{
   width: 100%; 
   height: 55px;
   padding: 8px;
-  background: #80e4d5;
+  background: #d2d2d2;
 }
 
 .timeline-img {
+  position: absolute;
+  bottom: 14%;
+  left: 5%;
   width: 35px;
-  height: 35px
+  height: 35px;
+
 }
 
 .addpost {
+  position: absolute;
+  bottom: 11%;
+  right: 45%;
   width: 40px;
   height: 40px
 }
 
 .logout {
+  position: absolute;
+  bottom: 17%;
+  right: 5%;
   width: 35px;
   height: 35px
+}
+
+.marge-profile {
+  margin-top: 55px;
 }
 
 /* 
@@ -595,3 +668,10 @@ li{
   ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
 
+.img-update {
+  max-width: 60%;
+}
+
+#favorite_pic {
+  max-width: 60%;
+}

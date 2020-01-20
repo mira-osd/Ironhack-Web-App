@@ -1,5 +1,7 @@
 <section id="create-profile">
-<h1>Crée ton profil</h1>
+    <div class="nav-create">
+        <h1>Crée ton profil</h1>
+    </div>
 
 <div class="contenu-profile">
 <form action="/users/create-profile" method="POST" enctype="multipart/form-data">
@@ -10,13 +12,13 @@
     
     <li>
     <label for="icon">Choisis ta photo de profil :</label>
-    <img src="{{user.icon}}">
+    <img src="{{user.icon}}" class="img-update">
     <input id="icon" type="file" name="icon">
     </li>
 
     <li>
     <label for="favorite_pic">Télécharge la photo de ta tenue préférée :</label>
-    <img class="preview-image" src="{{user.favorite_pic}}">
+    <img class="preview-image" src="{{user.favorite_pic}}" class="img-update">
     <input id="favorite_pic" type="file" name="favorite_pic">
     </li>
 
@@ -31,7 +33,7 @@
     </li>
 
 
-    <button id="button-profile" type="submit">VALIDER</button>
+    <button id="button-profile" type="submit">Valider</button>
 </form>
 </div>
 </section>
