@@ -134,14 +134,22 @@ nav{
   margin-left: auto;
 }
 
+
+
 .big-logo {
   margin-top: 50px;
   width: 215px;
   height: 110px;
 }
 
+.formulaire-content {
+  width: 295px;
+  height: 52px;
+  margin-left: 23px;
+}
+
 #email{
-  width: 212px;
+  width: 180px;
 }
 
 input, textarea{
@@ -225,6 +233,12 @@ li {
   margin-right: auto;
   margin-left: auto;
 }
+
+.formulaire-contentlog {
+  width: 295px;
+  height: 52px;
+}
+
 
 li{
 	display: block;
@@ -667,11 +681,3 @@ li{
  ╚██████╔╝██║     ██████╔╝██║  ██║   ██║   ███████╗██║     ██║  ██║╚██████╔╝██║     ██║███████╗███████╗
   ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝╚══════╝
 */
-
-.img-update {
-  max-width: 60%;
-}
-
-#favorite_pic {
-  max-width: 60%;
-}

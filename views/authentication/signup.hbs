@@ -2,17 +2,17 @@
   <section class="block-signup">
     <img src="/images/logo.png" class="big-logo">
     <h1 class="h1-auth">Bienvenue </h1>
+
+      <div class="formulaire-signup"></div>
       <form action="/signup" method="POST">
-  <div class="formulaire-signup">
-    <li>
+    <li class="formulaire-content">
   <label for="email">E-mail :</label>
   <input id="email" type="text" name="email">
   </li>
-  <li>
+  <li class="formulaire-content">
   <label for="password">Mot de passe :</label>
   <input id="password" type="password" name="password">
   </li>
-
   </div>
 
   {{#if errorMessage}}

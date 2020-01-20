@@ -10,8 +10,8 @@ const mongoose    = require('mongoose');
 
 /* CREATE PROFILE page*/
 router.get('/create-profile', (req, res, next) => {
-    
-    User.findById(req.user.id).then(user => {
+
+  User.findById(req.user.id).then(user => {
       res.render('users/create-profile', {
         user:req.user
       });
