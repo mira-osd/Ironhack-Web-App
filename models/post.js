@@ -7,6 +7,12 @@ const postSchema = new Schema({
   post_pic: String,
   pictureName: String,
   legende: String,
+  url : String,
+  url2: String,
+  url3 : String,
+  url_name: String,
+  url_name2: String,
+  url_name3: String,
 },{
     timestamps: {
       createdAt: "createdAt",

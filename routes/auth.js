@@ -72,7 +72,7 @@ router.post('/login', passport.authenticate('local', {
 
 router.get('/login/facebook', passport.authenticate('facebook'));
 router.get('/login/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
+  passport.authenticate('facebook', { successRedirect: '/timeline',
   failureRedirect: '/login' }));
 
 router.get('/logout', (req, res) => {

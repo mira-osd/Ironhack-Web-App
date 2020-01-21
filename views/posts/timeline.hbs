@@ -1,3 +1,4 @@
+   <div class="#content-timeline">
     <div class="marge"></div>
     <div class="nav-timeline">
       <img src="/images/logo2.png" class="logo">
@@ -5,6 +6,7 @@
       <a href="/posts/add">
        <img src="/images/add.png" class="add-post">
       </a>
+      <a href="/posts/add" class="responsive-addpost">Nouveau post</a>
 
       <a href = "/users/my-profile">
         <img src="{{user.icon}}" class="nav-avatar">
@@ -12,10 +14,10 @@
       
     </div>
 
-    {{#each posts}}
+    
       <div class="post">
-
-        <div class="head-post">
+        {{#each posts}}
+          <div class="head-post">
            {{#if isAuthor}}
            <a href = "/users/my-profile">
            <img src="{{creatorId.icon}}" class="avatar">
@@ -40,6 +42,8 @@
       </a>
       </div>
        {{/if}}
+
+       
       <div class="post-legende">
                {{#if isAuthor}}
              <a href = "/users/my-profile" class="username">{{creatorId.username}}</a>
@@ -47,10 +51,14 @@
              <a href = "/users/{{id}}/profile" class="username">{{creatorId.username}}</a>
          {{/if}}
       <p class="legende2">{{legende}}</p>
+      <a href= "{{url}}">{{url_name}}</a>
+      <a href= "{{url2}}">{{url_name2}}</a>
+      <a href= "{{url3}}">{{url_name3}}</a>
+
       </div>
     {{/each}}
     </div>
-
+</div>
 
     
   

@@ -6,6 +6,7 @@ const Post = require("../models/post")
 
 const uploadCloud = require('../config/cloudinary.js');
 const mongoose    = require('mongoose');
+const moment = require('moment')
 
 
 /* CREATE PROFILE page*/
@@ -72,10 +73,15 @@ router.get('/my-profile', (req, res, next) => {
 })
 .sort({createdAt: -1})
 .populate("creatorId")
-.then(posts => {
+.then(initialPosts => {
+  const finalPosts = initialPosts.map(onePost => {
+    onePost.isAuthor = onePost.creatorId._id.toString() === req.user._id.toString();
+    onePost.dateFromNow = moment(onePost.createdAt).fromNow();
+    return onePost
+  });
   res.render('users/my-profile', {
     user: req.user,
-    posts: posts,
+    posts: finalPosts,
   })
 })
 .catch(next)
@@ -101,6 +107,7 @@ router.get('/:id/profile', (req, res, next) => {
   .then(initPosts => {
     const finPosts = initPosts.map(thePost=> {
       thePost.isCreator = thePost.creatorId._id.toString() != req.user._id.toString();
+      thePost.dateFromNow = moment(thePost.createdAt).fromNow();
       return thePost;
     });
     res.render('users/profile', {

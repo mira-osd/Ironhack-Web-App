@@ -91,14 +91,16 @@ passport.use(new LocalStrategy(
 // AUTH FACEBOOK
 
 passport.use(new FacebookStrategy({
-  clientID: "1260949300756643",
-  clientSecret: "248450ecc28fcf21ee1b7886a2c3af45",
-  callbackURL: "http://localhost:3000/login/facebook/callback"
+  clientID: process.env.FACEBOOK_ID,
+  clientSecret: process.env.FACEBOOK_SECRET,
+  callbackURL: process.env.APP_URL + "/login/facebook/callback",
 },
 function(accessToken, refreshToken, profile, done) {
+
+  console.log("Facebook", profile)
+
   User.findOne({facebookId: profile.id})
   .then(user => {
-    // If found, login with that user:
     if (user) {
       done(null, user);
       return;

@@ -52,7 +52,14 @@ router.post('/posts/add',uploadCloud.single('post_pic'), (req, res, next) => {
       legende: req.body.legende, 
       creatorId: req.user.id,
       post_pic : req.file.url,
-      pictureName: req.file.originalname
+      pictureName: req.file.originalname,
+      url_name: req.body.url_name,
+      url_name2: req.body.url_name2,
+      url_name3: req.body.url_name3,
+      url: req.body.url,
+      url2: req.body.url2,
+      url3: req.body.url3,
+      
   })
   .then((post) => {
       res.redirect('/timeline'); 
@@ -96,8 +103,14 @@ router.post('/posts/:id/edit',uploadCloud.single('post_pic'),(req, res, next) =>
   const post_pic = req.file.url;
   const legende = req.body.legende;
   const pictureName = req.file.originalname; 
+  const url_name = req.body.url_name;
+  const url_name2 = req.body.url_name2;
+  const url_name3 = req.body.url_name3;
+  const url = req.body.url;
+  const url2 = req.body.url2;
+  const url3 = req.body.url3;
 
-    Post.update({_id: req.params.id}, { $set: { creatorId, post_pic, legende, pictureName}})
+    Post.update({_id: req.params.id}, { $set: { creatorId, post_pic, legende, pictureName, url, url_name}})
       .then((post) => {
         res.redirect('/timeline');
       })
