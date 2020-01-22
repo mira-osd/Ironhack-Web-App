@@ -11,39 +11,57 @@
     <textarea id="legende-area" type="text" name="legende" maxlength="300"></textarea>
 
   </li>
-    
-    <li class="link1">
-      <label for="url_name">Quel est ton article ?</label>
-    <input class="url_name" type="text" name="url_name"></input>
-    <label for="url"> Lien </label>
-      <input type="url" name="url" id="url"
-       placeholder="http://example.com"
-       pattern="https://.*" size="30">
+    <div class="url-container">
+    <p class="url-details">Partage les liens de tes looks :</p>
 
+    <li class="link1">
+
+      <div class="url-formulaire1">
+    <label for="url-cat" class="url-cat">Catégorie :</label>
+    <input class="url-name1" type="text" name="url_name" placeholder="ex: pantalon"></input>
+    </div>
+
+    <div class="url-formulaire1">
+    <label for="url" class="url-cat"> Lien :</label>
+      <input type="url" name="url" class="url-name1"
+       placeholder="https://example.com"
+       pattern="https://.*" size="30">
+       </div>
     </li>
 
      <li class="link2">
-      <label for="url_name">Quel est ton article ?</label>
-    <input class="url_name" type="text" name="url_name2"></input>
-    <label for="url"> Lien</label>
-      <input type="url" name="url2" id="url"
-       placeholder="http://example.com"
+
+       <div class="url-formulaire2">
+    <label for="url-cat" class="url-cat">Catégorie :</label>
+    <input class="url-name2" type="text" name="url_name" placeholder="ex: pantalon"></input>
+    </div>
+
+    <div class="url-formulaire2">
+    <label for="url" class="url-cat"> Lien :</label>
+      <input type="url" name="url2" class="url-name2"
+       placeholder="https://example.com"
        pattern="https://.*" size="30">
+       </div>
 
     </li>
 
      <li class="link3">
-      <label for="url_name">Quel est ton article ?</label>
-    <input class="url_name" type="text" name="url_name3"></input>
-    <label for="url"> Lien </label>
-      <input type="url" name="url3" id="url"
-       placeholder="http://example.com"
+      
+       <div class="url-formulaire3">
+    <label for="url-cat" class="url-cat">Catégorie:</label>
+    <input class="url-name3" type="text" name="url_name" placeholder="ex: pantalon"></input>
+    </div>
+
+    <div class="url-formulaire3">
+    <label for="url" class="url-cat"> Lien :</label>
+      <input type="url" name="url3" class="url-name3"
+       placeholder="https://example.com"
        pattern="https://.*" size="30">
+      </div>
 
     </li>
 
-
-
+  </div>
 
   
   <button class="post-button" type="submit">JE VALIDE</button>

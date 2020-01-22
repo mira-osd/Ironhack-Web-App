@@ -1,10 +1,11 @@
+<body class="body-profile">
 <header>
     <div class="nav-profile">
       {{#each posts}}
       <img src="{{creatorId.icon}}" class="avatar-profile">
       <p class="username-profile">{{creatorId.username}}</p>
       <p class="bio">{{creatorId.bio}}</p>
-      <p class="city"><img src="/images/location.png" class="location">{{creatoriD.city}}</p>
+      <p class="city"><img src="/images/location.png" class="location">{{creatorId.city}}</p>
   </div>
 
 </header>
@@ -17,6 +18,14 @@
         </div>
 
          <img src="{{post_pic}}" class="post-pic">
+
+        <div class="url-class">
+         <p class="details">Détails :</p>
+          <a href= "{{url}}" class="url1">{{url_name}}</a>
+          <a href= "{{url2}}" class="url2">{{url_name2}}</a>
+          <a href= "{{url3}}" class="url3">{{url_name3}}</a>
+          </div>
+          
       <div class="post-legende">
         <p class="username">{{creatorId.username}}</p>
       <p class="legende2">{{legende}}</p>
@@ -27,12 +36,14 @@
   
 <footer class="footer-profile">
 
+<img src="/images/logo.png" class="logo-resp"> 
+
 <a href="/timeline">
 <img src="/images/timeline.png" class="timeline-img">
 </a>
 
 <a href="/posts/add">
-<img src="/images/add2.png" class="addpost">
+<img src="/images/add.png" class="addpost">
 </a>
 
 <a href="/logout">
@@ -41,3 +52,4 @@
 
 </footer>
 
+</body>

@@ -1,3 +1,4 @@
+ <body class="body-profile">
   <header>
     <div class="nav-myprofile">
       <img src="{{user.icon}}" class="avatar-profile">
@@ -18,6 +19,13 @@
         </div>
 
          <img src="{{post_pic}}" class="post-pic">
+
+         <div class="url-class">
+         <p class="details">Détails :</p>
+          <a href= "{{url}}" class="url1">{{url_name}}</a>
+          <a href= "{{url2}}" class="url2">{{url_name2}}</a>
+          <a href= "{{url3}}" class="url3">{{url_name3}}</a>
+          </div>
         <div class="modif-post">
       <a href ="/posts/{{id}}/edit">
       <img src="/images/edit.png" class="edit-post">
@@ -36,12 +44,14 @@
 
 <footer class="footer-profile">
 
+ <img src="/images/logo.png" class="logo-resp"> 
+
 <a href="/timeline">
 <img src="/images/timeline.png" class="timeline-img">
 </a>
 
 <a href="/posts/add">
-<img src="/images/add2.png" class="addpost">
+<img src="/images/add.png" class="addpost">
 </a>
 
 <a href="/logout">
@@ -49,6 +59,8 @@
 </a>
 
 </footer>
+
+</body>
 
    
 
