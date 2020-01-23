@@ -618,7 +618,7 @@ li{
   padding-right: 8px;
   margin: 10px 5px 0 5px;
   font-size: 15px;
-  background-color: #ffd935;
+  background-color: #ffcec4;
   color: white;
   border-radius: 10%;
 }
@@ -630,7 +630,7 @@ li{
   padding-left: 5px;;
   margin: 10px 5px 0 5px;
   font-size: 15px;
-  background-color: #99ee9f;
+  background-color: #ddb2b3;
   color: white;
   border-radius: 10%;
 }
@@ -642,7 +642,7 @@ li{
   padding-left: 5px;;
   margin: 10px 5px 0 5px;
   font-size: 15px;
-  background-color: #99a6ee;
+  background-color: rgba(223, 168, 168, 0.99);
   color: white;
   border-radius: 10%;
 }
@@ -757,11 +757,12 @@ li{
 
   .username-timeline {
     display: inline-block;
-    position: absolute; 
-    top: 24%;
-    right: 42%;
+    margin-top: 215px;
     font-weight: bold;
+    margin-right: auto;
+    margin-left: auto;
   }
+
 }
 
 
@@ -807,8 +808,6 @@ li{
 
 .url-container {
   width: 351px;
-  border-radius: 10px;
-  border:3px solid #DDDDDD;
   margin-right: auto;
   margin-left: auto;
   margin-top: 22px;
@@ -819,25 +818,29 @@ li{
 }
 
 .link1, .link2, .link3 {
-  width: 71%;
+  width: 85%;
+  height: 90px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.4em;;
 }
 
 .link1, .url-name1 {
-  background-color: #ffd935;
-  padding: 0 1px 0 6px;
+  background-color: #ffcec4;
+  border-radius:  50% 20% / 10% 40%;
+  padding: 4px 1px 0 19px;
 }
 
 .link2, .url-name2 {
-  background-color: #99ee9f;
-  padding: 0 1px 0 6px;
+  background-color: #ddb2b3;
+  padding: 4px 1px 0 19px;
+  border-radius:  20% 50% / 10% 40%;
 }
 
 .link3, .url-name3 {
-  background-color: #99a6ee;
-  padding: 0 0 0 6px;
+  background-color: rgba(223, 168, 168, 0.99);
+  padding: 4px 1px 0 19px;
+  border-radius: 80% 20% / 10% 60%;
 }
 
 .url-formulaire1, .url-formulaire2, .url-formulaire3 {
@@ -874,11 +877,19 @@ li{
     position: absolute;
     top: 8%;
     right: 8%;
-    margin-top: 34px;
+    margin-top: 25px;
   }
   .quitter {
     margin-top: 80px;
     opacity: 0.8;
+  }
+
+  .link1, .url-name1, .link2, .url-name2, .link3, .url-name3 {
+    padding: 4px 1px 0 40px;
+  }
+
+  .post-button {
+    margin-top: 80px;
   }
 }
 
@@ -1003,7 +1014,7 @@ li{
   width: 100%; 
   height: 55px;
   padding: 8px;
-  background: #d2d2d2;
+  background: #f4f3f3;
 }
 
 .timeline-img {
