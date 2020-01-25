@@ -4,32 +4,31 @@
     <h1 class="h1-auth">Bienvenue </h1>
 
       <div class="formulaire-signup">
-      <form action="/signup" method="POST">
-    <li class="formulaire-content">
-  <label for="email">E-mail :</label>
-  <input id="email" type="text" name="email">
-  </li>
-  <li class="formulaire-content">
-  <label for="password">Mot de passe :</label>
-  <input id="password" type="password" name="password">
-  </li>
-  </div>
+        <form action="/signup" method="POST">
+          <li class="formulaire-content">
+           <label for="email">E-mail :</label>
+           <input id="email" type="text" name="email">
+          </li>
 
-  {{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
+          <li class="formulaire-content">
+            <label for="password">Mot de passe :</label>
+            <input id="password" type="password" name="password">
+          </li>
+      </div>
+          {{#if errorMessage}}
+           <div class="error-message">{{errorMessage}}</div>
+          {{/if}}
   
-  <button type="submit" class="connect-button">
-    CRÉER UN COMPTE
-  </button>
-</form>
+          <button type="submit" class="connect-button">
+            CRÉER UN COMPTE
+          </button>
+        </form>
 
     <div class="facebook-button">
       <a href="/login/facebook">Continuer avec Facebook</a>
     </div>
 
+    <p>Déjà membre ?  <a href="/login" class="back-login"> Se connecter</a></p>
 
-  <p>Déjà membre ?  <a href="/login" class="back-login"> Se connecter</a></p>
-
-</section>
+  </section>
 </body>

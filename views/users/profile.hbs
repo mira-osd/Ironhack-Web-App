@@ -1,55 +1,54 @@
 <body class="body-profile">
-<header>
+  <header>
     <div class="nav-profile">
-      {{#each posts}}
-      <img src="{{creatorId.icon}}" class="avatar-profile">
-      <p class="username-profile">{{creatorId.username}}</p>
-      <p class="bio">{{creatorId.bio}}</p>
-      <p class="city"><img src="/images/location.png" class="location">{{creatorId.city}}</p>
-  </div>
+      <img src="{{creator.icon}}" class="avatar-profile">
+      <p class="username-profile">{{creator.username}}</p>
+      <p class="bio">{{creator.bio}}</p>
+      <p class="city"><img src="/images/location.png" class="location">{{creator.city}}</p>
+    </div>
 
 </header>
       <div class="post">
-
+        {{#each posts}}
         <div class="head-post">
-           <img src="{{creatorId.icon}}" class="post-avatar">
+            <img src="{{creatorId.icon}}" class="post-avatar">
             <a href = "/users/{{id}}/profile" class="username">{{creatorId.username}}</a>
-          <p class="date">{{dateFromNow}}</p>
+            <p class="date">{{dateFromNow}}</p>
         </div>
 
          <img src="{{post_pic}}" class="post-pic">
 
         <div class="url-class">
-         <p class="details">Détails :</p>
+          <p class="details">Détails :</p>
           <a href= "{{url}}" class="url1">{{url_name}}</a>
           <a href= "{{url2}}" class="url2">{{url_name2}}</a>
           <a href= "{{url3}}" class="url3">{{url_name3}}</a>
-          </div>
+        </div>
           
-      <div class="post-legende">
-        <p class="username">{{creatorId.username}}</p>
-      <p class="legende2">{{legende}}</p>
-      </div>
-    {{/each}}
+        <div class="post-legende">
+         <p class="username">{{creatorId.username}}</p>
+         <p class="legende2">{{legende}}</p>
+        </div>
+      {{/each}}
+    </div>
   
-   <div class="marge-profile"></div>
+     <div class="marge-profile"></div>
   
-<footer class="footer-profile">
+  <footer class="footer-profile">
+   <img src="/images/logo.png" class="logo-resp"> 
 
-<img src="/images/logo.png" class="logo-resp"> 
+    <a href="/timeline">
+      <img src="/images/timeline.png" class="timeline-img">
+    </a>
 
-<a href="/timeline">
-<img src="/images/timeline.png" class="timeline-img">
-</a>
+    <a href="/posts/add">
+      <img src="/images/add.png" class="addpost">
+    </a>
 
-<a href="/posts/add">
-<img src="/images/add.png" class="addpost">
-</a>
+    <a href="/logout">
+     <img src="/images/logout.png" class="logout">
+    </a>
 
-<a href="/logout">
-<img src="/images/logout.png" class="logout">
-</a>
-
-</footer>
+  </footer>
 
 </body>

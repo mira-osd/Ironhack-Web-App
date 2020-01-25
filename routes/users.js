@@ -101,7 +101,7 @@ router.get('/:id/delete', (req, res, next) => {
 
 router.get('/:id/profile', (req, res, next) => {
 
-  Post.find({_id: req.params.id})
+  Post.find({creatorId: req.params.id})
   .sort({createdAt: -1})
   .populate('creatorId')
   .then(initPosts => {
@@ -111,8 +111,8 @@ router.get('/:id/profile', (req, res, next) => {
       return thePost;
     });
     res.render('users/profile', {
-      user: req.user,
-      posts: finPosts
+      posts: finPosts,
+      creator: finPosts[0].creatorId
     })
   })
   .catch(next)

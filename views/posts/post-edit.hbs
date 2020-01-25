@@ -1,75 +1,62 @@
 <section id="post-edit">
-<h1>Modifie ton post</h1>
-<form action="/posts/{{post.id}}/edit" method="POST" enctype="multipart/form-data">
-    <li id="post-pic">
-    <label for="post_pic">Choisis ta photo : </label>
-    <input id="postpic-area" type="file" accept="image/png, image/jpeg" name="post_pic" value="{{post.post_pic}}">
-    </li>
+  <h1>Modifie ton post</h1>
+      <form action="/posts/{{post.id}}/edit" method="POST" enctype="multipart/form-data">
+        <li id="post-pic">
+          <label for="post_pic">Choisis ta photo : </label>
+         <input id="postpic-area" type="file" accept="image/png, image/jpeg" name="post_pic" value="{{post.post_pic}}">
+        </li>
 
-    <li class="legende">
-    <label for="legende"> Ecris une légende :</label>
-    <input id="legende-area" type="text" name="legende" maxlength="300" value="{{post.legende}}"> 
-    </li>
+        <li class="legende">
+          <label for="legende"> Ecris une légende :</label>
+          <input id="legende-area" type="text" name="legende" maxlength="300" value="{{post.legende}}"> 
+        </li>
 
-
-    <div class="url-container">
-    <p class="url-details">Partage les liens de tes looks :</p>
-
-    <li class="link1">
-
-      <div class="url-formulaire1">
-    <label for="url-cat" class="url-cat">Catégorie :</label>
-    <input class="url-name1" type="text" name="url_name" placeholder="ex: pantalon" value={{post.url_name}}></input>
-    </div>
-
-    <div class="url-formulaire1">
-    <label for="url" class="url-cat"> Lien :</label>
-      <input type="url" name="url" class="url-name1"
-       placeholder="https://example.com"
-       pattern="https://.*" size="30" value={{post.url}}>
-       </div>
-    </li>
-
-     <li class="link2">
-
-       <div class="url-formulaire2">
-    <label for="url-cat" class="url-cat">Catégorie :</label>
-    <input class="url-name2" type="text" name="url_name2" placeholder="ex: pantalon" value={{post.url_name}}></input>
-    </div>
-
-    <div class="url-formulaire2">
-    <label for="url" class="url-cat"> Lien :</label>
-      <input type="url" name="url2" class="url-name2"
-       placeholder="https://example.com"
-       pattern="https://.*" size="30" value={{post.url}}>
-       </div>
-
-    </li>
-
-     <li class="link3">
-      
-       <div class="url-formulaire3">
-    <label for="url-cat" class="url-cat">Catégorie:</label>
-    <input class="url-name3" type="text" name="url_name3" placeholder="ex: pantalon" value={{post.url_name}}></input>
-    </div>
-
-    <div class="url-formulaire3">
-    <label for="url" class="url-cat"> Lien :</label>
-      <input type="url" name="url3" class="url-name3"
-       placeholder="https://example.com"
-       pattern="https://.*" size="30" value={{post.url}}>
-      </div>
-
-    </li>
-
-  </div>    
-      
+          <div class="url-container">
+           <p class="url-details">Partage les liens de tes looks :</p>
   
-<button class="post-button" type="submit">JE VALIDE</button>
+             <li class="link1">
 
-</form>
+                <div class="url-formulaire1">
+                 <label for="url-cat" class="url-cat">Catégorie :</label>
+                  <input class="url-name1" type="text" name="url_name" placeholder="ex: pantalon" value={{post.url_name}}></input>
+                </div>
+
+               <div class="url-formulaire1">
+                 <label for="url" class="url-cat"> Lien :</label>
+                 <input type="url" name="url" class="url-name1" placeholder="https://example.com" pattern="https://.*" size="30" value={{post.url}}>
+               </div>
+              </li>
+
+             <li class="link2">
+
+               <div class="url-formulaire2">
+                  <label for="url-cat" class="url-cat">Catégorie :</label>
+                  <input class="url-name2" type="text" name="url_name2" placeholder="ex: pantalon" value={{post.url_name}}></input>
+               </div>
+
+                <div class="url-formulaire2">
+                  <label for="url" class="url-cat"> Lien :</label>
+                  <input type="url" name="url2" class="url-name2" placeholder="https://example.com" pattern="https://.*" size="30" value={{post.url}}>
+                </div>
+              </li>
+
+             <li class="link3">
+      
+              <div class="url-formulaire3">
+                <label for="url-cat" class="url-cat">Catégorie:</label>
+                <input class="url-name3" type="text" name="url_name3" placeholder="ex: pantalon" value={{post.url_name}}></input>
+              </div>
+
+              <div class="url-formulaire3">
+                <label for="url" class="url-cat"> Lien :</label>
+                <input type="url" name="url3" class="url-name3" placeholder="https://example.com" pattern="https://.*" size="30" value={{post.url}}>
+              </div>
+            </li>
+           </div>    
+      
+          <button class="post-button" type="submit">JE VALIDE</button>
+
+        </form>
 </section>
 
-<div class="quitter">
-<a href="/timeline">Quitter</a>
-</div>
+  <div class="quitter"><a href="/timeline">Quitter</a></div>

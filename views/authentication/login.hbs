@@ -1,36 +1,37 @@
 <body id="body-login">
   <section class="block-login">
-  <img src="/images/logo.png" class="big-logo">
-  <h1 class="h1-auth">Ravis de vous revoir !</h1>
+    <img src="/images/logo.png" class="big-logo">
+    <h1 class="h1-auth">Ravis de vous revoir !</h1>
+  
     <form action="/login" method="POST">
 
     <div class="formulaire-login">
-       <li class="formulaire-contentlog">
-        <label for="email">E-mail :</label>
-        <input id="email" type="email" name="email">
-       </li>
+      <li class="formulaire-contentlog">
+          <label for="email">E-mail :</label>
+          <input id="email" type="email" name="email">
+      </li>
 
       <li class="formulaire-contentlog">
         <label for="password">Mot de passe :</label>
        <input id="password" type="password" name="password">
       </li> 
-      </div>
+    </div>
 
-    {{#if errorMessage}}
-      <div class="error-message">{{errorMessage}}</div>
-    {{/if}}
+      {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+      {{/if}}
   
       <button type="submit" class="connect-button2">
         SE CONNECTER
-     </button>
+      </button>
 
       <div class="facebook-button">
-      <a href="/login/facebook">Continuer avec Facebook</a>
+        <a href="/login/facebook">Continuer avec Facebook</a>
       </div>
 
 
-</form>
-  <p> Pas encore de compte ?  <a href="/signup" class="back-login"> Inscription</a></p>
+    </form>
+      <p> Pas encore de compte ?  <a href="/signup" class="back-login"> Inscription</a> </p>
 
-</section>
+  </section>
 </body>
